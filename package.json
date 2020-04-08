@@ -1,0 +1,32 @@
+{
+  "name": "todos-list-api",
+  "version": "1.0.0",
+  "description": "Simple todo-list API using express and nodemon in this case (nodemon not required but included in dependencies)",
+  "main": "todos-api.js",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^2.0.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"no test specified\" "
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stall84/express-api-todoList.git"
+  },
+  "keywords": [
+    "todo",
+    "list",
+    "api",
+    "express",
+    "student",
+    "junior"
+  ],
+  "author": "Michael E Stallings",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/stall84/express-api-todoList/issues"
+  },
+  "homepage": "https://github.com/stall84/express-api-todoList#readme"
+}

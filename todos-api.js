@@ -35,7 +35,7 @@ app.get('/api/todos/:id', (req,res) => {
     let id = parseInt(req.params.id)
     let foundID = todoList.find((item) => {
         return item.id === id;
-    });
+    })
     if (!foundID) {
         res.status(404).send('The todo with the specified ID was not found (404)');
     };
@@ -45,7 +45,7 @@ app.get('/api/todos/:id', (req,res) => {
 // POST /api/todos
 // This route intended to post new todo body to the global array at top (todoList) 
 app.post('/api/todos', (req,res,next) => {
-    console.log('Got a POST request... ')
+    console.log(`Got a POST request on PORT: ${PORT}`);
     // Using reduce method on todoList array to assign a new ID to added objects
     let nextID = todoList.reduce((acc, ele) => {
         if (ele.id > acc) {
@@ -61,6 +61,22 @@ app.post('/api/todos', (req,res,next) => {
     todoList.push(newToDo);
     res.send(newToDo);
 })
+
+// PUT /api/todos/:id
+app.put('/api/todos/:id', (req,res) => {
+    console.log(`Got a PUT request on PORT: ${PORT}`);
+    // logic to find specified todo by it's parameter id
+    // same logic as above GET route
+    let id = parseInt(req.params.id)
+    let foundID = todoList.find((item) => {
+        return item.id === id
+    })
+    if (!foundID) {
+        res.status(404).send('The todo with the specified ID was not found (404)')
+    };
+    foundID.todo = req.body.todo;
+    res.send(foundID);
+});
 
 
 

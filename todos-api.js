@@ -32,7 +32,7 @@ app.get('/api/todos', (req,res) => {
 // GET /api/todos/:id
 // this route is intended to check if id exists and then return it in response to client
 app.get('/api/todos/:id', (req,res) => {
-    let id = parseInt(req.params.id)
+    let id = parseInt(req.params.id);
     let foundID = todoList.find((item) => {
         return item.id === id;
     })
@@ -67,15 +67,33 @@ app.put('/api/todos/:id', (req,res) => {
     console.log(`Got a PUT request on PORT: ${PORT}`);
     // logic to find specified todo by it's parameter id
     // same logic as above GET route
-    let id = parseInt(req.params.id)
+    let id = parseInt(req.params.id);
     let foundID = todoList.find((item) => {
-        return item.id === id
+        return item.id === id;
     })
     if (!foundID) {
-        res.status(404).send('The todo with the specified ID was not found (404)')
+        res.status(404).send('The todo with the specified ID was not found (404)');
     };
     foundID.todo = req.body.todo;
     res.send(foundID);
+});
+
+app.delete('/api/todos/:id', (req,res) => {
+    // same thing as above, we need to find if the specified ID exists, if not, send 404. copy/paste code
+    console.log(`Got a DELETE request on PORT: ${PORT}`);
+    let id = parseInt(req.params.id);
+    let foundID = todoList.find((item) => {
+        return item.id === id;
+    })
+    if (!foundID) {
+        res.status(404).send('The todo with the specified ID was not found (404)');
+    };
+    // using indexOf method on todoList array to find/store the array index # of occurence of the found ID
+    let index = todoList.indexOf(foundID);
+    // using splice method on array to remove the index (to delete the post)
+    todoList.splice(index, 1);
+    // return the deleted course to client
+    res.send(`Successfully Deleted ToDo: ${JSON.stringify(foundID)}`);
 });
 
 

@@ -22,7 +22,7 @@ app.listen(PORT, () => {
 });
 
 // 'expose' the public folder
-app.use(express.static('/public'));
+app.use(express.static('public'));
 
 // GET /api/todos
 app.get('/api/todos', (req,res) => {

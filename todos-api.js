@@ -12,7 +12,7 @@ const PORT = process.env.PORT || 4000;
 
 // Our main (global) array (of objects) that we will be pushing new todo requests into
 var todoList = [{
-    id: 1,
+    time: 1000,
     todo: "Implement a REST API"
 }];
 
@@ -22,7 +22,7 @@ app.listen(PORT, () => {
 });
 
 // 'expose' the public folder
-app.use(express.static('public'));
+app.use(express.static(__dirname + 'public'));
 
 // GET /api/todos
 app.get('/api/todos', (req,res) => {
@@ -31,69 +31,71 @@ app.get('/api/todos', (req,res) => {
 
 // GET /api/todos/:id
 // this route is intended to check if id exists and then return it in response to client
-app.get('/api/todos/:id', (req,res) => {
-    let id = parseInt(req.params.id);
-    let foundID = todoList.find((item) => {
-        return item.id === id;
+app.get('/api/todos/:time', (req,res) => {
+    let time = parseInt(req.params.time);
+    let foundTime = todoList.find((item) => {
+        return item.time === time;
     })
-    if (!foundID) {
-        res.status(404).send('The todo with the specified ID was not found (404)');
+    if (!foundTime) {
+        res.status(404).send('The todo with the specified TIME was not found (404) Make sure to use exact, 4-digit 24-hr time ex: 1005 for 10:05AM');
     };
-    res.send(foundID);
+    res.send(foundTime);
 });
 
 // POST /api/todos
 // This route intended to post new todo body to the global array at top (todoList) 
 app.post('/api/todos', (req,res,next) => {
     console.log(`Got a POST request on PORT: ${PORT}`);
-    // Using reduce method on todoList array to assign a new ID to added objects
-    let nextID = todoList.reduce((acc, ele) => {
-        if (ele.id > acc) {
-            return ele.id;
-        } 
-        return acc++
-    }, 0) + 1
-    // this is the new object we're recieiving from the POST request. pushing it onto the todoList array
-    let newToDo = {
-        id: nextID,
-        todo: req.body.todo
-    };
+    // implement logic to check if the time the user is entering already exists in global todos. if it conflicts, 404 returned
+   let currTime = req.body.time;
+   let presTime = todoList.find((ele) => {
+       return ele.time === currTime;
+   })
+   if (presTime) {
+       res.status(404).send('The specified time already has a to-do associated with it, please make the to-do earlier or later than what was specified');
+       return;
+   };
+   // otherwise new todo is created and then pushed into array
+   let newToDo = {
+    time: req.body.time,
+    todo: req.body.todo
+   } 
     todoList.push(newToDo);
     res.send(newToDo);
-})
+});
 
 // PUT /api/todos/:id
-app.put('/api/todos/:id', (req,res) => {
+app.put('/api/todos/:time', (req,res) => {
     console.log(`Got a PUT request on PORT: ${PORT}`);
     // logic to find specified todo by it's parameter id
     // same logic as above GET route
-    let id = parseInt(req.params.id);
-    let foundID = todoList.find((item) => {
-        return item.id === id;
+    let time = parseInt(req.params.time);
+    let foundTime = todoList.find((item) => {
+        return item.time === time;
     })
-    if (!foundID) {
-        res.status(404).send('The todo with the specified ID was not found (404)');
+    if (!foundTime) {
+        res.status(404).send('The todo with the specified TIME was not found (404) Make sure to use exact, 4-digit 24-hr time ex: 1005 for 10:05AM');
     };
-    foundID.todo = req.body.todo;
-    res.send(foundID);
+    foundTime.todo = req.body.todo;
+    res.send(foundTime);
 });
 
-app.delete('/api/todos/:id', (req,res) => {
+app.delete('/api/todos/:time', (req,res) => {
     // same thing as above, we need to find if the specified ID exists, if not, send 404. copy/paste code
     console.log(`Got a DELETE request on PORT: ${PORT}`);
-    let id = parseInt(req.params.id);
-    let foundID = todoList.find((item) => {
-        return item.id === id;
+    let time = parseInt(req.params.time);
+    let foundTime = todoList.find((item) => {
+        return item.time === time;
     })
-    if (!foundID) {
-        res.status(404).send('The todo with the specified ID was not found (404)');
+    if (!foundTime) {
+        res.status(404).send('The todo with the specified TIME was not found (404) Make sure to use exact, 4-digit 24-hr time ex: 1005 for 10:05AM');
     };
     // using indexOf method on todoList array to find/store the array index # of occurence of the found ID
-    let index = todoList.indexOf(foundID);
+    let index = todoList.indexOf(foundTime);
     // using splice method on array to remove the index (to delete the post)
     todoList.splice(index, 1);
     // return the deleted course to client
-    res.send(`Successfully Deleted ToDo: ${JSON.stringify(foundID)}`);
+    res.send(`Successfully Deleted ToDo: ${JSON.stringify(foundTime)}`);
 });
 
 

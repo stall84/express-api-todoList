@@ -1,10 +1,20 @@
 // JS for index.html
 
-document.getElementById('submit').addEventListener("click", submit());
+document.getElementById('submitButton').addEventListener("click", submit());
 
 function submit () {
-    axios.post('/api/todos')
-       .then(function(response) {
-    console.log('where to go from here');
-})
-};
+
+let inputTime = document.getElementById('inputTime');
+let inputTodo = document.getElementById('inputTodo');
+console.log(`Initial constructed data is inputTime: ${inputTime}, inputTodo: ${inputTodo}`);
+
+    axios.post('/api/todos', {
+        time: inputTime,
+        todo: inputTodo
+    })
+       .then((response) => {
+    console.log(`Success! ${response.data}`);
+    },       (error) => {
+    console.log(`There was an error in response ${error}`);
+});
+}

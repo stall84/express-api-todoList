@@ -1,71 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="author" content="Michael E Stallings">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your ToDo List</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <meta charset="UTF-8">
+  <meta name="author" content="Michael E Stallings">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your ToDo List</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
+
 <body>
-    <div class="container" id="navCont">
+  <div class="container" id="navCont">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <span class="navbar-brnad mb-0 h1">ToDo-List-API</span>
+      <span class="navbar-brnad mb-0 h1">ToDo-List-API</span>
     </nav>
-    </div>
+  </div>
 
-    <div class="container" id="main-holder">
-        <form>
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                  <label for="inputTime">Time</label>
-                  <input type="text" class="form-control" id="inputTime" placeholder="Time">
-                </div>
-                <div class="form-group col-md-6">
-                  <label for="inputTodo">To-Do</label>
-                  <input type="text" class="form-control" id="inputTodo" placeholder="To-Do">
-                </div>
-                <button id="submitButton" type="submit" class="btn btn-primary">Submit Time/To-Do</button>
-            </div>
-        </form>
-    </div>
-
-    <div class="container" id="display-holder">
-
-        <div class="col-12 mt-4">
-
-            <table class="table table-dark">
-                <thead>
-                  <tr>
-                    <th scope="col">Time</th>
-                    <th scope="col">To-Do</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <th scope="row">0900</th>
-                    <td>Wake Up!</td>
-                    
-                  </tr>
-                  <tr>
-                    <th scope="row">1200</th>
-                    <td>Lunch with Maragret and Thomas at the Lunch Spot. Make sure to bring development plans</td>
-                   
-                  </tr>
-                  <tr>
-                    <th scope="row">1430</th>
-                    <td>Leave work early</td>
-                  
-                  </tr>
-                </tbody>
-              </table>
-
+  <div class="container" id="main-holder">
+    <form id="todoForm">
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="inputTime">Time</label>
+          <input type="text" class="form-control" id="inputTime" placeholder="Time">
         </div>
+        <div class="form-group col-md-6">
+          <label for="inputTodo">To-Do</label>
+          <input type="text" class="form-control" id="inputTodo" placeholder="To-Do">
+        </div>
+        <button id="submitButton" type="submit" class="btn btn-primary">Submit Time/To-Do</button>
+      </div>
+    </form>
+  </div>
+
+  <div class="container" id="display-holder">
+
+    <div class="col-12 mt-4">
+
+      <table class="table table-dark">
+        <thead>
+          <tr>
+            <th scope="col">Time</th>
+            <th scope="col">To-Do</th>
+          </tr>
+        </thead>
+        <tbody id='todo-content'>
+
+          <!-- <tr>
+            <th scope="row">0900</th>
+            <td>Wake Up!</td>
+
+          </tr>
+          <tr>
+            <th scope="row">1200</th>
+            <td>Lunch with Maragret and Thomas at the Lunch Spot. Make sure to bring development plans</td>
+
+          </tr>
+          <tr>
+            <th scope="row">1430</th>
+            <td>Leave work early</td> 
+
+          </tr> -->
+        </tbody>
+      </table>
 
     </div>
-    
-   
+
+  </div>
+
+
 </body>
 <script src="script.js"></script>
+
 </html>

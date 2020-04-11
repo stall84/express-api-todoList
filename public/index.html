@@ -1,43 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="author" content="Michael E Stallings">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your ToDo List</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
+  <meta charset="UTF-8">
+  <meta name="author" content="Michael E Stallings">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your ToDo List</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
+
 <body>
-    <div class="container" id="navCont">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <span class="navbar-brnad mb-0 h1">ToDo-List-API</span>
+  <div class="container" id="navCont">
+    <nav class="navbar navbar-expand-lg navbar-light bg-secondary">
+      <span class="navbar mb-0 h1">ToDo-List-API</span>
     </nav>
+  </div>
+
+  <div class="container" id="main-holder">
+    <div class="mt-4" id="instructions">
+      <p>A very simple daily to-do app. Enter the time of your todo in 4 digit 24-hr time (ex: 1PM = 1300)<br>
+      Then enter the task you want to do at that time, click the blue submit button and voila! Your todo is added to today's running list
+      </p>
+    </div>
+    <form class="mt-5" id="todoForm">
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="inputTime">Time</label>
+          <input type="text" class="form-control" id="inputTime" placeholder="Time">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="inputTodo">To-Do</label>
+          <input type="text" class="form-control" id="inputTodo" placeholder="To-Do">
+        </div>
+        <button id="submitButton" type="submit" class="btn btn-primary">Submit Time/To-Do</button>
+      </div>
+    </form>
+  </div>
+
+  <div class="container" id="display-holder">
+
+    <div class="col-12 mt-5">
+      <h2>Just-Added ToDo</h2>
+      <table class="table table-dark">
+        <thead>
+          <tr>
+            <th scope="col">Time</th>
+            <th scope="col">To-Do</th>
+          </tr>
+        </thead>
+        <tbody id='curr-todo-content'>
+          <!--Javascript here for just-added to-do-->
+        </tbody>
+      </table>
+
     </div>
 
-    <div class="container">
-        <div class="row mt-5">
-            <div class="col-12">
+    <div class="col-12 mt-5">
+      <h2>Today's Full ToDo List</h2>
+      <table class="table table-light">
+        <thead>
+          <tr>
+            <th scope="col">Time</th>
+            <th scope="col">To-Do</th>
+          </tr>
+        </thead>
+        <tbody id='full-todo-content'>
+          <!--Javascript here for full list of todos-->
+        </tbody>  
 
-                <form>
-                    <div class="form-group">
-                    <label for="new-todo">New to-Do</label>
-                    <input type="new-todo" class="form-control" id="new-todo" placeholder="Enter your new to-Do here">
-                    </div>
-                </form>
-
-
-            </div>
-        </div>
     </div>
-    
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <!--Placeholder for to-Do display (response)-->
-            </div>
-        </div>
-     </div>
+
+  </div>
+
+
 </body>
 <script src="script.js"></script>
+
 </html>

@@ -7,8 +7,8 @@ const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-// setting development port to 3000. this apparently allows reverse-proxy with digitaloceans as well
-const PORT = process.env.PORT || 3000;
+
+const PORT = process.env.PORT || 8080;
 
 // Our main (global) array (of objects) that we will be pushing new todo requests into
 var todoList = [];

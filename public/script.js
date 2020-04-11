@@ -9,29 +9,28 @@ function submit (event) {
     let todo = event.target.elements.inputTodo.value
     const todoObject = {time,todo}
 
-    fetch('/api/todos', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(todoObject)
-    }).then(response => response.json()).then((data) =>{
-        console.log(data)
-        const todoDisplay = document.getElementById('todo-content');
-        todoDisplay.innerHTML = `
-        <tr>
-            <th scope="row">${data.time}</th>
-            <td>${data.todo}</td>
-        </tr>
-        `
-       
-        // Create a render function to add the todo to the DOM
 
-    }).catch(e => console.log(`Error is ${e}`))
+    axios.post('/api/todos', todoObject)
+        .then(response => {
+            console.log(response.data)
+            const currTodoDisplay = document.getElementById('curr-todo-content');
+            currTodoDisplay.innerHTML = `
+            <tr>
+                <th scope="row">${response.data.time}</th>
+                <td>${response.data.todo}</td>
+            </tr>
+            `
+        
+            // Create a render function to add the todo to the DOM
+
+        }).catch(e => console.log(`Error occured: ${e}`));
     
-}
+    axios.get('/api/todos') 
+        .then(response => {
+            console.log(response.data);
+            //var todosArray = response.data;
+            //const fullTodoDisplay = document.getElementById('full-todo-content');
+        
+        }).catch(e => console.log(`Error occurred: ${e}`));
+};
 
-// function to render the individual single todo that's entered and returns
-function renderToDo () {
-
-}

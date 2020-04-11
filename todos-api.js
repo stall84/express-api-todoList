@@ -11,10 +11,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 const PORT = process.env.PORT || 4000;
 
 // Our main (global) array (of objects) that we will be pushing new todo requests into
-var todoList = [{
-    time: 1000,
-    todo: "Implement a REST API"
-}];
+var todoList = [];
 
 // Listen/Setup Route
 app.listen(PORT, () => {

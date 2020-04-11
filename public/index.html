@@ -13,13 +13,18 @@
 
 <body>
   <div class="container" id="navCont">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <span class="navbar-brnad mb-0 h1">ToDo-List-API</span>
+    <nav class="navbar navbar-expand-lg navbar-light bg-secondary">
+      <span class="navbar mb-0 h1">ToDo-List-API</span>
     </nav>
   </div>
 
   <div class="container" id="main-holder">
-    <form id="todoForm">
+    <div class="mt-4" id="instructions">
+      <p>A very simple daily to-do app. Enter the time of your todo in 4 digit 24-hr time (ex: 1PM = 1300)<br>
+      Then enter the task you want to do at that time, click the blue submit button and voila! Your todo is added to today's running list
+      </p>
+    </div>
+    <form class="mt-5" id="todoForm">
       <div class="form-row">
         <div class="form-group col-md-6">
           <label for="inputTime">Time</label>
@@ -36,8 +41,8 @@
 
   <div class="container" id="display-holder">
 
-    <div class="col-12 mt-4">
-
+    <div class="col-12 mt-5">
+      <h2>Just-Added ToDo</h2>
       <table class="table table-dark">
         <thead>
           <tr>
@@ -52,8 +57,8 @@
 
     </div>
 
-    <div class="col-12 mt-4">
-
+    <div class="col-12 mt-5">
+      <h2>Today's Full ToDo List</h2>
       <table class="table table-light">
         <thead>
           <tr>

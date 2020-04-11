@@ -8,7 +8,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT || 80;
 
 // Our main (global) array (of objects) that we will be pushing new todo requests into
 var todoList = [];

@@ -1,7 +1,16 @@
 --+-- Simple todo list API to prove Express methods.
 
---+-- Version 1.0.0 is a redesigned full-stack implementation of a same-day time/todo web application.  <br>
+
 The user should enter 4 digits for the time, and a string for the todo at that time, then click the blue submit button to send the data to the server and save it.  
+
+--<>-- New Version 1.1.1! Fixed Bugs: Added setTimeout function to GET request that appears to have fixed the full-todo's rendering problem & eliminating the need to submit an empty form to display the latest/all todo's
+<br> 
+-- Still in progress for newer versions: creating "completed" function to strke-through completed ToDo's
+-- Considering email notification system to alert user at specified time of ToDo.
+
+<><>HISTORY:
+
+--+-- Version 1.0.0 is a redesigned full-stack implementation of a same-day time/todo web application.  <br>
 
 --+-- Version 1.0.0 is functioning, but has a number of shortcomings that are in the process of being refined/fixed as of this writing.
 

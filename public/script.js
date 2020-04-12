@@ -49,7 +49,7 @@ function renderTodos (todos) {
     for (let i = 0; i < todos.length; i++) {
         let currTodo = todos[i];
         let todosHTML = `
-            <tr>
+            <tr class="todoRow">
                 <th scope="row">${currTodo.time}</th>
                 <td>${currTodo.todo}</td>
             </tr>

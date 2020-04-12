@@ -1,7 +1,7 @@
 {
   "name": "todos-list-api",
-  "version": "1.0.0",
-  "description": "Simple todo-list API using express and nodemon in this case (nodemon not required but included in dependencies)",
+  "version": "1.1.1",
+  "description": "Simple todo-list web-app w/API. Able to take user/client inputs of time and todo, then display them back to the user.",
   "main": "todos-api.js",
   "dependencies": {
     "express": "^4.17.1",
@@ -26,7 +26,7 @@
   "author": "Michael E Stallings",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/stall84/express-api-todoList/issues"
+    "url": "https://github.com/stall84/express-api-todoList/#readme"
   },
   "homepage": "https://github.com/stall84/express-api-todoList#readme"
 }

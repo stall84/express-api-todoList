@@ -60,3 +60,11 @@ function renderTodos (todos) {
     return outputArray.join('');
 
 };
+
+var doneTodos = document.querySelectorAll('todoRow');
+
+function completeTodo () {
+    console.log(`These are the listed todos: ${doneTodos}`);
+}
+
+completeTodo();

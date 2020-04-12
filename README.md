@@ -3,7 +3,9 @@
 
 The user should enter 4 digits for the time, and a string for the todo at that time, then click the blue submit button to send the data to the server and save it.  
 
---<>-- New Version 1.1.1! Fixed Bugs: Added setTimeout function to GET request that appears to have fixed the full-todo's rendering problem & eliminating the need to submit an empty form to display the latest/all todo's
+--<>-- New Version 1.1.2 Added simple ability to click on the todo rows marking-off that todo as done, changing the color to green.
+
+--<>-- Version 1.1.1! Fixed Bugs: Added setTimeout function to GET request that appears to have fixed the full-todo's rendering problem & eliminating the need to submit an empty form to display the latest/all todo's
 <br> 
 -- Still in progress for newer versions: creating "completed" function to strke-through completed ToDo's
 -- Considering email notification system to alert user at specified time of ToDo.

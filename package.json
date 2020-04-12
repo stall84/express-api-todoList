@@ -1,6 +1,6 @@
 {
   "name": "todos-list-api",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "Simple todo-list web-app w/API. Able to take user/client inputs of time and todo, then display them back to the user.",
   "main": "todos-api.js",
   "dependencies": {

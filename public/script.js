@@ -33,9 +33,9 @@ function submit (event) {
             const fullTodoDisplay = document.getElementById('full-todo-content');
             // finally assign the inner html of the 'grabbed' full-todo form to the render function taking the todos array as argument/input
             fullTodoDisplay.innerHTML = renderTodos(todosArray);
-        
+           
         }).catch(e => console.log(`Error occurred: ${e}`))
-        , 1000);
+    , 1000);
 };
 
     // this render function will take the input argument of the response array from the axios get call directly above
@@ -48,10 +48,13 @@ function renderTodos (todos) {
     // and will render it in html, then it will push that html template-literal into the output array
     for (let i = 0; i < todos.length; i++) {
         let currTodo = todos[i];
+        // below in the render I used the quickest/cheapest method of painting a table row green when it's clicked on as completed by user
         let todosHTML = `
-            <tr class="todoRow">
+            <tr class="todoRow" onclick="this.style.backgroundColor='LawnGreen'">
+
                 <th scope="row">${currTodo.time}</th>
                 <td>${currTodo.todo}</td>
+                
             </tr>
         `
         outputArray.push(todosHTML);
@@ -61,10 +64,8 @@ function renderTodos (todos) {
 
 };
 
-var doneTodos = document.querySelectorAll('todoRow');
 
-function completeTodo () {
-    console.log(`These are the listed todos: ${doneTodos}`);
-}
 
-completeTodo();
+
+
+

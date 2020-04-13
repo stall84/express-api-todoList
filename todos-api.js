@@ -23,7 +23,7 @@ app.use(express.static(__dirname + '/public'));
 
 // GET /api/todos
 app.get('/api/todos', (req,res) => {
-    res.send(todoList);
+    setTimeout(( () => {res.send(todoList)}),200);
 });
 
 // GET /api/todos/:id

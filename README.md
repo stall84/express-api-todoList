@@ -3,7 +3,9 @@
 
 The user should enter 4 digits for the time, and a string for the todo at that time, then click the blue submit button to send the data to the server and save it.  
 
---<>-- New Version 1.1.2 Added simple ability to click on the todo rows marking-off that todo as done, changing the color to green.
+--<>-- New Version 1.1.3 Moved setTimeout function from the client-side script.js code to the server-side code and wrapped the GET route in it (set to 200ms). This appears to have fixed the todoList full-rendering problem that was occuring. Removed name from nav-bar logo.
+
+--<>-- Version 1.1.2 Added simple ability to click on the todo rows marking-off that todo as done, changing the color to green.
 
 --<>-- Version 1.1.1! Fixed Bugs: Added setTimeout function to GET request that appears to have fixed the full-todo's rendering problem & eliminating the need to submit an empty form to display the latest/all todo's
 <br> 

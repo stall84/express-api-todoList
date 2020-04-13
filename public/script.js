@@ -25,7 +25,7 @@ function submit (event) {
 
         }).catch(e => console.log(`Error occured: ${e}`));
     
-    setTimeout(axios.get('/api/todos') 
+    axios.get('/api/todos') 
         .then(response => {
             console.log(response.data);
             // create/define the array that will store the response array of objects from the servers' global todo variable
@@ -35,7 +35,7 @@ function submit (event) {
             fullTodoDisplay.innerHTML = renderTodos(todosArray);
            
         }).catch(e => console.log(`Error occurred: ${e}`))
-    , 1000);
+        
 };
 
     // this render function will take the input argument of the response array from the axios get call directly above

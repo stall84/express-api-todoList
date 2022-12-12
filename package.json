@@ -4,7 +4,7 @@
   "description": "Simple todo-list web-app w/API. Able to take user/client inputs of time and todo, then display them back to the user.",
   "main": "todos-api.js",
   "dependencies": {
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "nodemon": "^2.0.2"
   },
   "devDependencies": {},
